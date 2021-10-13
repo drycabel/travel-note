@@ -10,7 +10,7 @@ class PostCreator
             post.save!
         end
 
-        false
+        true
     rescue => e
         errors.add(:base, "Something went wrong - #{e.inspect}")
         false

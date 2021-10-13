@@ -1,16 +1,20 @@
-<%= render partial: 'form', locals: { button_name: 'Save', action_path: posts_path, action_method: :post} %>
-<br>
-<h1>Older posts</h1>
-<br>
-<% @posts.each do |post| %>
-    <h5><%= post.note_date %> - <%= post.city %>
-        <%= link_to edit_post_path(post), class: "btn btn-primary btn-block" do %>
-        Edit
-        <% end %>
-        <%= link_to post_path(post), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger btn-block" do %>
-        Delete
-        <% end %>
-    </h5>
-    <p><%= post.note %></p>
+<div class="posts-container">
     <br>
-<% end %>
+    <h1>Older posts <%= link_to "Create new post", new_post_path, class: "btn btn-success"%></h1>
+    <br>
+    <div class="custom-cards">
+    <% @posts.each do |post| %>
+        <%- post_decorator = PostDecorator.new(post) %>
+        <div class="card h-100 w-100" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><%= post_decorator.note_date %> </h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= post_decorator.city %></h6>
+                <p class="card-text"><%= post_decorator.short_note %></p>
+                <%= link_to "Details", post_path(post), class: "card-link" %>
+                <%= link_to "Edit", edit_post_path(post), class: "card-link" %>
+                <%= link_to "Delete", post_path(post), method: :delete, class: "card-link", data: {confirm: 'Are you sure?'} %>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>

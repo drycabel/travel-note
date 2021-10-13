@@ -1,3 +1,4 @@
-<div class="posts-form-container"></div>
+<div class="posts-container">
+    <h1>Edit post</h1>
     <%= render partial: 'form', locals: { button_name: 'Save', action_path: post_path(@form.post.id), action_method: :put} %>
 </div>

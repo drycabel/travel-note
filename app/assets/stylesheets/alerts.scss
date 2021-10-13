@@ -1,0 +1,19 @@
+@import "breakpoints";
+
+.alert {
+    margin: 20px auto !important;
+    // width: 90%;
+    max-width: 1000px;
+
+    @media screen and (max-width: $large) {
+        max-width: 800px;
+    }
+
+    @media screen and (max-width: $medium) {
+        max-width: 500px;
+    }
+    @media screen and (max-width: $small) {
+        max-width: 440px;
+    }
+
+}

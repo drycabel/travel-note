@@ -40,6 +40,14 @@ class PostsController < ApplicationController
         redirect_to posts_path, {"#{key}": service.msg}
     end
 
+    def show
+        if Post.exists?(params[:id])
+            @post = Post.find_by_id(params[:id])
+        else
+            redirect_to posts_path, alert: "Something went wrong"
+        end
+    end
+
 
 
 

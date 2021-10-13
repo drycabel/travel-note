@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ @import "containers";
+ @import "breakpoints";
+ @import "alerts";
+
+ .custom-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    // grid-template: 150px / auto auto auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    @media screen and (max-width: $medium) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: $small) {
+        grid-template-columns: 1fr;
+    }
+}
