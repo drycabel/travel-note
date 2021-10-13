@@ -8,7 +8,7 @@
         <div class="card h-100 w-100" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title"><%= post_decorator.note_date %> </h5>
-                <h6 class="card-subtitle mb-2 text-muted"><%= post_decorator.city %></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><%= post_decorator.city %> <%=  post_decorator.temperature %></h6>
                 <p class="card-text"><%= post_decorator.short_note %></p>
                 <%= link_to "Details", post_path(post), class: "card-link" %>
                 <%= link_to "Edit", edit_post_path(post), class: "card-link" %>

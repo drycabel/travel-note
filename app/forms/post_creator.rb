@@ -16,7 +16,14 @@ class PostCreator
         false
     end
 
-    def post
-        @post ||= Post.new(city: city, note: note, note_date: Date.today)
+    def temp
+        @temp ||=  OpenWeather::Client.new().current_weather(city: city || 'Warsaw').main.temp
     end
+
+    def post
+        @post ||= Post.new(city: city, note: note, note_date: Date.today, temp: temp)
+    end
+
+    private
+
 end

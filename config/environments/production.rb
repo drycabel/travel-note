@@ -117,4 +117,11 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  OpenWeather::Client.configure do |config|
+    config.api_key = Rails.application.credentials[Rails.env.to_sym][:open_weather][:api_key]
+    config.units =  'metric'
+    config.lang = 'en'
+    config.user_agent = 'OpenWeather Ruby Client/1.0'
+  end
+
 end

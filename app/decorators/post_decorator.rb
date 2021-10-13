@@ -7,6 +7,10 @@ class PostDecorator
         @post&.note&.truncate(27) || "-"
     end
 
+    def temperature
+        @post.temp? ? "#{@post.temp} °C" : ' '
+    end
 
-    delegate :city, :note_date, :note, to: :@post
+
+    delegate :city, :note_date, :note, :temp, to: :@post
 end
