@@ -60,3 +60,8 @@ gem 'pry'
 gem 'bootstrap', '~> 5.1.0'
 gem 'jquery-rails'
 gem 'open-weather-ruby-client'
+gem 'devise', github: 'heartcombo/devise', branch: 'main'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'

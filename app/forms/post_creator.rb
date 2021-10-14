@@ -11,19 +11,17 @@ class PostCreator
         end
 
         true
+
     rescue => e
         errors.add(:base, "Something went wrong - #{e.inspect}")
         false
     end
 
     def temp
-        @temp ||=  OpenWeather::Client.new().current_weather(city: city || 'Warsaw').main.temp
+        @temp ||=  !city.present? ? nil : OpenWeather::Client.new().current_weather(city: city).main.temp
     end
 
     def post
         @post ||= Post.new(city: city, note: note, note_date: Date.today, temp: temp)
     end
-
-    private
-
 end

@@ -124,4 +124,8 @@ Rails.application.configure do
     config.user_agent = 'OpenWeather Ruby Client/1.0'
   end
 
+  config.action_mailer.default_url_options = {
+    host: 'https://travel-note-dr.herokuapp.com'
+  }
+
 end
