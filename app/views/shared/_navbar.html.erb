@@ -1,5 +1,18 @@
 <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1">Travel note</span>
+  <div class="container-fluid">
+    <% if user_signed_in? %>
+      <%= link_to "Travel note", root_path, class: 'navbar-brand' %>
+      <%= link_to "Posts", posts_path, class: 'btn btn-secondary' %>
+    <% else %>
+      <%= link_to "Travel note", root_path, class: 'navbar-brand' %>
+    <% end %>
+    <div>
+      <% if user_signed_in? %>
+        <%= link_to "Edit account", edit_user_registration_path, class: 'btn btn-primary' %>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'btn btn-warning' %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path, class: 'btn btn-primary' %>
+      <% end %>
     </div>
-  </nav>
+  </div>
+</nav>

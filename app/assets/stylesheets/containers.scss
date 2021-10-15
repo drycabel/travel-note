@@ -1,5 +1,12 @@
 @import "breakpoints";
 
+.home-container {
+    padding-top: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
 .posts-container {
     margin: 20px auto;
     max-width: 1000px;
@@ -7,7 +14,7 @@
 
     @media screen and (max-width: $large) {
      max-width: 800px;
- }
+     }
 
      @media screen and (max-width: $medium) {
          max-width: 500px;
@@ -15,4 +22,22 @@
      @media screen and (max-width: $small) {
          max-width: 440px;
      }
- }
+}
+
+.devise-container {
+    margin: 20px auto;
+    max-width: 1000px;
+
+
+
+    @media screen and (max-width: $large) {
+     max-width: 800px;
+     }
+
+     @media screen and (max-width: $medium) {
+         max-width: 500px;
+     }
+     @media screen and (max-width: $small) {
+         max-width: 440px;
+     }
+}
