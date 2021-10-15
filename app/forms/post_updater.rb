@@ -1,8 +1,9 @@
 class PostUpdater
     include ActiveModel::Model
 
-    attr_accessor :city, :note, :post_id
+    attr_accessor :city, :note, :post_id, :current_user
     validates :city, :note, :post_id, presence: true
+    validate :post_belongs_to_current_user
 
 
     def save
@@ -21,5 +22,12 @@ class PostUpdater
 
     def post
         @post ||= Post.find(post_id)
+    end
+
+    private
+
+    def post_belongs_to_current_user
+        return if post.creator_id == current_user
+        errors.ad(:base, "You are not creator of this post")
     end
 end

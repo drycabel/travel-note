@@ -1,7 +1,7 @@
 class PostCreator
     include ActiveModel::Model
 
-    attr_accessor :city, :note
+    attr_accessor :city, :note, :current_user
     validates :city, :note, presence: true
 
     def save
@@ -22,6 +22,6 @@ class PostCreator
     end
 
     def post
-        @post ||= Post.new(city: city, note: note, note_date: Date.today, temp: temp)
+        @post ||= Post.new(city: city, note: note, note_date: Date.today, temp: temp, creator_id: current_user)
     end
 end

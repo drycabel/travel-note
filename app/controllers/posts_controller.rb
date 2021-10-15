@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
     def index
-        @posts = Post.all.order(created_at: :desc)
+        @posts = current_user.posts.order(created_at: :desc)
     end
 
     def new
@@ -9,7 +9,10 @@ class PostsController < ApplicationController
     end
 
     def create
-        @form = PostCreator.new(post_params)
+
+        # binding.pry
+
+        @form = PostCreator.new(post_params.merge(current_user: current_user.id))
         if @form.save
             redirect_to posts_path, notice: "Post created successfully"
         else
@@ -26,7 +29,7 @@ class PostsController < ApplicationController
     end
 
     def update
-        @form = PostUpdater.new(post_params.merge(post_id: params[:id]))
+        @form = PostUpdater.new(post_params.merge(post_id: params[:id], current_user: current_user.id))
         if @form.save
             redirect_to posts_path, notice: "Post updated successfully"
         else
