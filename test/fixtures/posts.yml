@@ -1,0 +1,6 @@
+post:
+  city: Warszawa
+  note: Test note
+  note_date: <%= Date.today %>
+  temp: 21.37
+  creator_id: 86fb818d-9e92-5942-a62a-b31717e7a536

@@ -9,9 +9,6 @@ class PostsController < ApplicationController
     end
 
     def create
-
-        # binding.pry
-
         @form = PostCreator.new(post_params.merge(current_user: current_user.id))
         if @form.save
             redirect_to posts_path, notice: "Post created successfully"
