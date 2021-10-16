@@ -8,6 +8,7 @@
 }
 
 .posts-container {
+    padding: 10px;
     margin: 20px auto;
     max-width: 1000px;
 
@@ -25,6 +26,7 @@
 }
 
 .devise-container {
+    padding: 10px;
     margin: 20px auto;
     max-width: 1000px;
 
@@ -40,4 +42,8 @@
      @media screen and (max-width: $small) {
          max-width: 440px;
      }
+}
+
+.alert-container {
+    padding: 10px;
 }

@@ -57,4 +57,12 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+  OpenWeather::Client.configure do |config|
+    config.api_key = Rails.application.credentials[Rails.env.to_sym][:open_weather][:api_key]
+    config.units =  'metric'
+    config.lang = 'en'
+    config.user_agent = 'OpenWeather Ruby Client/1.0'
+  end
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

@@ -1,11 +1,16 @@
 <% if alert.present? %>
-    <div class="alert alert-danger" role="alert">
-        <%= alert %>
+    <div class="alert-container">
+        <div class="alert alert-danger" role="alert">
+            <%= alert %>
+        </div>
     </div>
+
 <% end %>
 
 <% if notice.present? %>
-    <div class="alert alert-success" role="alert">
-        <%= notice %>
+    <div class="alert-container">
+        <div class="alert alert-success" role="alert">
+            <%= notice %>
+        </div>
     </div>
 <% end %>
