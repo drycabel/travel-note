@@ -1,7 +1,8 @@
 class PostDestroyer
     attr_reader :msg
 
-    def initialize(post_id)
+    def initialize(post_id, current_user)
+        @current_user = current_user
         @post_id = post_id
     end
 
@@ -24,7 +25,12 @@ class PostDestroyer
     private
 
     def validations_succeed?
+        @msg = "You have to be logged in" and return false if @current_user.blank?
+
         @msg = "Post doesn't exist" and return false if post.blank?
+
+        @msg = "You are not cretor" and return false if post.creator_id != @current_user.id
+
         true
     end
 end

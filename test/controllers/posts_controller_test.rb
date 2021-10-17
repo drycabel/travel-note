@@ -46,7 +46,7 @@ class PostsControllerTest < ActionController::TestCase
     end
 
     test "should show the post" do
-        get :show, params: {id: @post.id}
+        get :show, params: {id: @post.id, current_user: @user}
         assert_response :success
     end
 

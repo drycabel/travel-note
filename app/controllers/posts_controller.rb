@@ -35,7 +35,7 @@ class PostsController < ApplicationController
     end
 
     def destroy
-        service = PostDestroyer.new(params[:id])
+        service = PostDestroyer.new(params[:id], current_user)
         key = (service.destroyed_successfully? ? "notice" : "alert")
         redirect_to posts_path, {"#{key}": service.msg}
     end
