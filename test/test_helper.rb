@@ -1,6 +1,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative "../config/environment"
 require "rails/test_help"
+require 'capybara/rails'
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
@@ -11,4 +12,9 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 
+end
+
+class ActionDispatch::IntegrationTest
+  # Make the Capybara DSL available in all integration tests
+  include Capybara::DSL
 end

@@ -14,12 +14,12 @@ class PostsControllerTest < ActionController::TestCase
         Rails.cache.clear
     end
 
-    test "should get index" do
+    test "should get index posts" do
         get :index
         assert_response :success
     end
 
-    test "should get new" do
+    test "should get new post" do
         get :new
         assert_response :success
     end
@@ -50,7 +50,7 @@ class PostsControllerTest < ActionController::TestCase
         assert_response :success
     end
 
-    test "shuld destroy the post" do
+    test "should destroy the post" do
         assert_difference -> { Post.count }, -1 do
             delete :destroy, params: { id: @post.id }
         end
